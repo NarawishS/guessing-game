@@ -31,6 +31,7 @@ services:
       # - "27017:27017"
     volumes:
       - mongodata:/data/db
+      - ./mongo/conf/mongod.conf:/etc/mongod.conf
       - ./mongo/initdb/:/docker-entrypoint-initdb.d
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
