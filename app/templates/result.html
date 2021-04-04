@@ -1,0 +1,9 @@
+<h1>Result</h1>
+{% if game.answer==game.guess%}
+    <h1>YOU GUESS CORRECT</h1>
+    <label>Answer is: {{ game.answer }}</label>
+    <br>
+    <a href="/">play again</a>
+{% else %}
+    <h1>Why are you here?</h1>
+{%endif%}

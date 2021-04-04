@@ -1,0 +1,29 @@
+{% if game.end %}
+    <h1>Result</h1>
+    {% if game.answer==game.guess%}
+        <h1>YOU GUESS CORRECT</h1>
+        <label>Answer is: {{ game.answer }}</label>
+        <br>
+        <a href="/">play again</a>
+    {% else %}
+        <h1>Why are you here?</h1>
+    {% endif %}
+{% else %}
+    <h1>guessing game</h1>
+    <label>Count: {{ game.count }}</label>
+    <br>
+    <label>Hint:</label>
+    {% for hint in game.hint %}
+        <span>{{hint}}</span>
+    {% endfor %}
+    <br>
+    {% for guess in game.guess %}
+        <span>{{guess}}</span>
+    {% endfor %}
+    <br>
+    <form action="/game" method="post">
+        {% for w in game.choice %}
+            <span><input type="submit" name="choice" value={{w}}></span>
+        {% endfor %}
+    </form>
+{% endif %}
